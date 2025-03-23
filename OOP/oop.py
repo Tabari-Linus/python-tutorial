@@ -27,6 +27,12 @@ class Employee:
         return cls(first, last, pay)
 
 
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True
+
 emp_1 = Employee("Linus", "Nex", 10000)
 emp_2 = Employee('Mr', "Lii", 8000)
 
@@ -38,6 +44,9 @@ emp_str_1 = 'Jak-jude-7000'
 str_emp = Employee.from_string(emp_str_1)
 print(str_emp.email, str_emp.pay)
 
+import datetime
+my_date = datetime.date(2016, 7, 10)
+print(Employee.is_workday(my_date))
 
 print(Employee.num_of_emps)
 
